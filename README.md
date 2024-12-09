@@ -80,7 +80,7 @@ Large language models (LLMs) hold significant potential in medical applications.
         ```
 
 5. **Specify the Publications Directory**
-    - Ensure your MRONJ scientific publications are in the specified folder (default is `publications`).
+    - Ensure your MRONJ scientific publications are in the specified folder (default is `MRONJ`).
 
 6. **Execute the Cells**
     - Run each cell sequentially to initialize the vector store and launch the chatbot interface.
@@ -90,7 +90,7 @@ Large language models (LLMs) hold significant potential in medical applications.
 The system comprises several key components:
 
 1. **Knowledge Database**
-    - Constructes a database from scientific publications.
+    - Constructes a database from the available scientific publications.
 
 2. **Vector Store**
     - Utilizes Llama-Index to convert publications into searchable vectors.
