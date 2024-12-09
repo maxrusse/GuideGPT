@@ -44,7 +44,7 @@ Large language models (LLMs) hold significant potential in medical applications.
 
 1. **Clone the Repository**
     ```bash
-    git clone https://github.com/yourusername/GuideGPT.git
+    git clone https://github.com/maxrusse/GuideGPT.git
     cd GuideGPT
     ```
 
@@ -62,7 +62,7 @@ Large language models (LLMs) hold significant potential in medical applications.
 ## Using the Jupyter Notebook
 
 1. **Download the Notebook**
-    - [Demo of GuideGPT.ipynb](path_to_notebook/GuideGPT.ipynb)
+    - [Demo of GuideGPT.ipynb](GuideGPT.ipynb)
 
 2. **Launch Jupyter Notebook**
     ```bash
