@@ -1,65 +1,158 @@
 # GuideGPT: Context-Aware Chatbot for MRONJ Clinical Questions
 
-This project implements a context-aware chatbot using Retrieval-Augmented Generation (RAG) to provide evidence-based answers for questions related to Medication-related Osteonecrosis of the Jaw (MRONJ). The system compares the performance of generic chatbots versus context-aware chatbots informed by scientific literature.
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+
+## Overview
+
+**GuideGPT** is a context-aware chatbot leveraging Retrieval-Augmented Generation (RAG) to deliver evidence-based answers to clinical questions related to Medication-related Osteonecrosis of the Jaw (MRONJ). This system contrasts the efficacy of generic chatbots with context-aware counterparts informed by scientific literature.
+
+## Table of Contents
+
+- [Abstract](#abstract)
+- [Features](#features)
+- [Installation](#installation)
+- [Using the Jupyter Notebook](#using-the-jupyter-notebook)
+- [How It Works](#how-it-works)
+- [Technical Implementation](#technical-implementation)
+- [Performance](#performance)
+- [Contributing](#contributing)
+- [License](#license)
+- [Acknowledgements](#acknowledgements)
+- [Contact](#contact)
 
 ## Abstract
 
-Large language models show promise in medical applications, but their use in clinical settings is limited by data transparency and scientific accuracy concerns. This project evaluates GuideGPT, a context-aware chatbot integrated with a knowledge database of 449 scientific publications, designed to answer questions about MRONJ prevention, diagnosis, and treatment. When compared to a generic LLM across 30 MRONJ-related questions, GuideGPT showed significantly better performance in content quality, scientific explanation, and expert agreement.
+Large language models (LLMs) hold significant potential in medical applications. However, their integration into clinical settings is often hindered by concerns over data transparency and scientific accuracy. **GuideGPT** addresses these challenges by integrating a knowledge database comprising  scientific publications aligned with international MRONJ guidelines. This chatbot is designed to answer questions pertaining to MRONJ prevention, diagnosis, and treatment. In a comparative analysis involving 30 MRONJ-related queries, **GuideGPT** demonstrated markedly superior performance over generic LLMs in areas such as content quality, scientific explanation, and expert agreement.
+
+## Features
+
+- **Context-Aware Responses**: Utilizes a comprehensive knowledge base to provide accurate and relevant answers.
+- **Retrieval-Augmented Generation (RAG)**: Enhances response quality by retrieving pertinent information from scientific literature.
+- **Source Tracking**: Offers the possiblity of creating hyperlinks to source documents for verification and further reading.
+- **Easy Setup**: User-friendly Jupyter Notebook for quick initialization and usage.
+- **Performance Verified**: Outperforms generic models in expert evaluations focusing on MRONJ-specific queries.
+
+## Installation
+
+### Prerequisites
+
+- Python 3.10 or higher
+- [Jupyter Notebook](https://jupyter.org/install)
+- OpenAI API Key
+
+### Steps
+
+1. **Clone the Repository**
+    ```bash
+    git clone https://github.com/yourusername/GuideGPT.git
+    cd GuideGPT
+    ```
+
+2. **Create a Virtual Environment (Optional but Recommended)**
+    ```bash
+    python -m venv venv
+    source venv/bin/activate  # On Windows: venv\Scripts\activate
+    ```
+
+3. **Install Required Dependencies**
+    ```bash
+    pip install -r requirements.txt
+    ```
 
 ## Using the Jupyter Notebook
 
-1. Download the notebook file `Demo of GuideGPT.ipynb`
-2. Upload the notebook to your preferred Jupyter environment
-3. Set your OpenAI API key
-4. Specify the folder path containing the MRONJ scientific publications
-5. Execute the cells to initialize the vector store and launch the interface
+1. **Download the Notebook**
+    - [Demo of GuideGPT.ipynb](path_to_notebook/GuideGPT.ipynb)
+
+2. **Launch Jupyter Notebook**
+    ```bash
+    jupyter notebook
+    ```
+
+3. **Upload the Notebook**
+    - Navigate to the directory containing `GuideGPT.ipynb` and open it.
+
+4. **Set Your OpenAI API Key**
+    - In the first code cell, set your API key:
+        ```python
+        import os
+        os.environ["OPENAI_API_KEY"] = 'your-api-key-here'
+        ```
+
+5. **Specify the Publications Directory**
+    - Ensure your MRONJ scientific publications are in the specified folder (default is `publications`).
+
+6. **Execute the Cells**
+    - Run each cell sequentially to initialize the vector store and launch the chatbot interface.
 
 ## How It Works
 
-The system utilizes several components to generate evidence-based responses:
+The system comprises several key components:
 
-* **Knowledge Database**: Created from 449 scientific publications referenced in 6 international MRONJ guidelines
-* **Vector Store**: Uses Llama-Index to convert publications into searchable vectors
-* **RAG Implementation**: Retrieves relevant content based on semantic similarity
-* **Response Generation**: Uses GPT-4 with custom prompting templates
-* **Source Tracking**: Provides hyperlinks to source documents for verification
+1. **Knowledge Database**
+    - Constructes a database from scientific publications.
 
-## Setup Instructions
+2. **Vector Store**
+    - Utilizes Llama-Index to convert publications into searchable vectors.
 
-1. Set up your OpenAI API key:
-```python
-os.environ["OPENAI_API_KEY"] = 'your-api-key-here'
-```
+3. **Retrieval-Augmented Generation (RAG)**
+    - Retrieves relevant content based on semantic similarity to the query.
 
-2. Specify the directory containing your scientific publications:
-```python
-FOLDER_PATH = "publications"
-```
+4. **Response Generation**
+    - Employs GPT-4 with custom prompting templates to generate accurate answers.
 
-3. Install required dependencies:
-```bash
-pip install llama-index openai pandas numpy
-```
-
-4. Run the initialization script to create the vector store
+5. **Source Tracking**
+    - Provides filenames and pages of source information to create hyperlinks to source documents for answer verification.
 
 ## Technical Implementation
 
-- Uses text-embedding-ada-002 model for generating dense vector representations
-- Implements semantic similarity search using cosine distance
-- Retrieves top 20 most relevant sentences per query
-- Includes surrounding context (5 sentences before/after) for completeness
-- Provides source metadata including file name and page number
-- Uses GPT-4 (version gpt-4-0613) with temperature 0.4
+- **Embedding Model**
+    - Uses `text-embedding-ada-002` for generating dense vector representations.
+
+- **Semantic Similarity Search**
+    - Implements cosine distance for retrieving the top 20 most relevant sentences per query.
+
+- **Contextual Completeness**
+    - Includes surrounding context (5 sentences before and after) to ensure comprehensive responses.
+
+- **Source Metadata**
+    - Provides detailed metadata, including file names and page numbers of source documents.
+
+- **Language Model**
+    - Utilizes GPT-4 (version `gpt-4-0613`) with a temperature setting of 0.4 for response generation.
 
 ## Performance
 
-In evaluation by 10 international MRONJ experts, GuideGPT significantly outperformed the generic model in:
-- Content quality (p=0.006)
-- Scientific explanation (p=0.032)
-- Expert agreement (p=0.008)
+In evaluations conducted by 10 international MRONJ experts, **GuideGPT** significantly outperformed generic language models in the following areas:
 
+- **Content Quality** (p=0.006)
+- **Scientific Explanation** (p=0.032)
+- **Expert Agreement** (p=0.008)
 
-Note: OpenAI API access is required for using this implementation.
+*Note: Access to the OpenAI API is required to use this implementation.*
 
-For more information, see the full publication: "Evaluation of a context-aware chatbot using Retrieval-Augmented Generation for answering clinical questions on Medication-related osteonecrosis of the jaw"
+For detailed insights, refer to the full publication: 
+> "Evaluation of a context-aware chatbot using Retrieval-Augmented Generation for answering clinical questions on Medication-related osteonecrosis of the jaw"
+
+## Contributing
+
+This project is finalized for publication, so contributions are not accepted. 
+However, if you'd like to collaborate or use this as inspiration for a new project, feel free to reach out. 
+We’d love to hear your ideas!
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+## Acknowledgements
+
+- **OpenAI** for providing the GPT-4 model.
+- **Llama-Index** and **LangChain** for their powerful libraries facilitating the implementation.
+- The MRONJ experts who participated in the evaluation study.
+
+## Contact
+
+For any inquiries or feedback, please contact:
+- **GitHub**: [maxrusse](https://github.com/maxrusse)
+- **LinkedIn**: [LinkedIn Profile]([https://www.linkedin.com/in/yourprofile](https://www.linkedin.com/in/maximilian-russe-3a83a42a6))
+
