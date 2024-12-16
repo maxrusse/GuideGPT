@@ -154,5 +154,5 @@ This project is licensed under the [MIT License](LICENSE).
 
 For any inquiries or feedback, please contact:
 - **GitHub**: [maxrusse](https://github.com/maxrusse)
-- **LinkedIn**: [LinkedIn Profile]([https://www.linkedin.com/in/yourprofile](https://www.linkedin.com/in/maximilian-russe-3a83a42a6))
+- **LinkedIn**: [LinkedIn Profile]([https://www.linkedin.com/in/maximilian-russe-3a83a42a6](https://www.linkedin.com/in/maximilian-russe-3a83a42a6))
 
